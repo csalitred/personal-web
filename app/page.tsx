@@ -14,6 +14,7 @@ import Link from 'next/link'
 import { AnimatedBackground } from '@/components/ui/animated-background'
 import {
   PROJECTS,
+  RESEARCH,
   WORK_EXPERIENCE,
   BLOG_POSTS,
   EMAIL,
@@ -137,8 +138,9 @@ export default function Personal() {
       >
         <div className="flex-1">
           <p className="text-zinc-600 dark:text-zinc-400">
-            Focused on creating intuitive and performant web experiences.
-            Bridging the gap between design and development.
+            Hi, I am Software Engineer with a focus on
+            Machine Learning, Computer Vision, and Embedded Systems. A graduate student at the NC State University focusing on wirless communication and signal processing.
+            I am excited to bring new technologies to life and create innovative solutions that make a difference. 
           </p>
         </div>
       </motion.section>
