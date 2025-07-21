@@ -15,7 +15,6 @@ import { AnimatedBackground } from '@/components/ui/animated-background'
 import {
   PROJECTS,
   WORK_EXPERIENCE,
-  RESEARCH,
   EDUCATION,
   BLOG_POSTS,
   EMAIL,
