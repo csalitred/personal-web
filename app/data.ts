@@ -2,7 +2,7 @@ type Project = {
   name: string
   description: string
   link: string
-  video: string
+  video: string | null
   id: string
 }
 
@@ -10,7 +10,7 @@ type Research = {
   name: string
   description: string
   link: string
-  video: string
+  video: string | null
   id: string
 }
 
@@ -35,6 +35,14 @@ type SocialLink = {
   link: string
 }
 
+type Education = {
+  institution: string   
+  degree: string
+  end: string
+  link: string
+  id: string
+}
+
 export const PROJECTS: Project[] = [
   {
     name: 'Brain Tumor Detection with Machine Learning',
@@ -47,14 +55,14 @@ export const PROJECTS: Project[] = [
   {
     name: 'Asset Tracking & Anti-theft System',
     description: 'Internal wireless asset tracking and anti-theft system using BLE technology, data logging and wirelesss control implentation with android application.',
-    link: null,
-    video:null,
+    link: '',
+    video: null,
     id: 'project2',
   },
   {
     name: 'Object Detection with Edge Device',
     description: 'Built custome Convolutional Neural Network models and deployed on an edge device using TensorFlow Lite for realt-time object detection.',
-    link: null,
+    link: '',
     video: null,
     id: 'project3',
   },
@@ -64,11 +72,28 @@ export const RESEARCH: Research[] = [
   {
     name: 'RSSI Localization',
     description: 'Localization of a device using RSSI values with Zigbee network on XBee devices.',
-    link: null,
+    link: '',
     video: null,
     id: 'research1',  
   },
 ]
+
+export const EDUCATION: Education[] = [
+  {
+    institution: 'University of North Carolina at Charlotte',   
+    degree: 'Bachelor of Science in Computer Engineering',
+    end: 'December 2024',
+    link: 'https://engr.charlotte.edu/',
+    id: 'education1',
+  },
+  {
+    institution: 'North Carolina State University',
+    degree: 'Master of Science in Electrical Engineering',
+    end: 'Expected: May 2027',
+    link: 'https://engr.ncsu.edu/',
+    id: 'education2',
+  }
+] 
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {
@@ -76,7 +101,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     title: 'Software Engineer Intern',
     start: 'June 2025',
     end: 'Present',
-    link: 'https://Honewywell.com',
+    link: 'https://www.honeywell.com/us/en',
     id: 'work1',
   },
   {
