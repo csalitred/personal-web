@@ -148,6 +148,13 @@ export default function Personal() {
             Machine Learning, Computer Vision, and Embedded Systems. A graduate student at the NC State University focusing on wirless communication and signal processing.
             I am excited to bring new technologies to life and create innovative solutions that make a difference. 
           </p>
+          <a
+            href="/csalitre_resume_2025.pdf"
+            download
+            className="mt-4 inline-block rounded bg-zinc-900 px-4 py-2 text-white font-semibold shadow-md hover:bg-zinc-700 transition-colors"
+          >
+            Download Resume
+          </a>
         </div>
       </motion.section>
 
