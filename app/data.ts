@@ -53,10 +53,10 @@ export const PROJECTS: Project[] = [
     id: 'project2',
   },
   {
-    name: 'Object Detection with Edge Device',
-    description: 'Built custome Convolutional Neural Network models and deployed on an edge device using TensorFlow Lite for realt-time object detection.',
-    link: '',
-    image: '/UNC-Charlotte-logo.jpg',
+    name: 'Expertiza',
+    description: 'Open source reimplementation of a controller for Expertiza web application that allows students to find and connect with experts in their field.',
+    link: 'https://github.com/csalitred/expertiza',
+    image: '/NCSU-logo.png',
     id: 'project3',
   },
 ]
