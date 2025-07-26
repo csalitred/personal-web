@@ -39,22 +39,22 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="transition-colors duration-300">
       <body
-        className={`${geist.variable} ${geistMono.variable} bg-white tracking-tight antialiased dark:bg-zinc-950`}
+        className={`${geist.variable} ${geistMono.variable} bg-white dark:bg-zinc-950 text-black dark:text-white tracking-tight antialiased min-h-screen flex flex-col transition-colors duration-300`}
       >
         <ThemeProvider
-          enableSystem={true}
+          enableSystem={false}
           attribute="class"
           storageKey="theme"
-          defaultTheme="system"
+          defaultTheme="light"
         >
-          <div className="flex min-h-screen w-full flex-col font-[family-name:var(--font-inter-tight)]">
-            <div className="relative mx-auto w-full max-w-screen-sm md:max-w-4xl lg:max-w-5xl xl:max-w-6xl flex-1 px-4 md:px-8 lg:px-12 pt-20">
+          <div className="flex flex-col flex-1 min-h-screen w-full font-[family-name:var(--font-inter-tight)]">
+            <div className="relative flex-1 w-full max-w-6xl mx-auto px-4 md:px-8 lg:px-12 pt-24">
               <Header />
               {children}
-              <Footer />
             </div>
+            <Footer />
           </div>
         </ThemeProvider>
       </body>

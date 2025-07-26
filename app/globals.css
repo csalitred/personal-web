@@ -20,6 +20,30 @@
   }
 }
 
+html {
+  background: #ffffff;
+  color: #000000;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.dark {
+  background: #0f0f0f;
+  color: #ffffff;
+}
+
+body {
+  min-height: 100vh;
+  background: inherit;
+  color: inherit;
+}
+
+@media (min-width: 1024px) {
+  body {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 :root {
   --sh-class: #7aa2f7;
   --sh-sign: #89ddff;

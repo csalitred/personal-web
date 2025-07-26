@@ -1,324 +1,95 @@
 'use client'
-import { motion } from 'motion/react'
-import { XIcon } from 'lucide-react'
-import { Spotlight } from '@/components/ui/spotlight'
-import { Magnetic } from '@/components/ui/magnetic'
-import {
-  MorphingDialog,
-  MorphingDialogTrigger,
-  MorphingDialogContent,
-  MorphingDialogClose,
-  MorphingDialogContainer,
-} from '@/components/ui/morphing-dialog'
 import Link from 'next/link'
-import { AnimatedBackground } from '@/components/ui/animated-background'
-import {
-  PROJECTS,
-  WORK_EXPERIENCE,
-  EDUCATION,
-  BLOG_POSTS,
-  EMAIL,
-  SOCIAL_LINKS,
-} from './data'
-import Image from 'next/image'
+import { motion } from 'motion/react'
 
-const VARIANTS_CONTAINER = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-}
-
-const VARIANTS_SECTION = {
-  hidden: { opacity: 0, y: 20, filter: 'blur(8px)' },
-  visible: { opacity: 1, y: 0, filter: 'blur(0px)' },
-}
-
-const TRANSITION_SECTION = {
-  duration: 0.3,
-}
-
-type ProjectImageProps = {
-  src: string
-  alt: string
-}
-
-function ProjectImage({ src, alt}: ProjectImageProps) {
+export default function Home() {
   return (
-    <MorphingDialog
-      transition={{
-        type: 'spring',
-        bounce: 0,
-        duration: 0.3,
-      }}
+    <motion.main 
+      className="flex flex-col items-center justify-center min-h-[60vh] py-24"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
     >
-      <MorphingDialogTrigger>
-        <div className="relative aspect-video w-full cursor-zoom-in overflow-hidden rounded-xl">
-          <Image
-            src={src}
-            alt={alt}
-            fill
-            className="object-cover transition-transform duration-300 hover:scale-105"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
-        </div>
-      </MorphingDialogTrigger>
-      <MorphingDialogContainer>
-        <MorphingDialogContent className="relative aspect-video rounded-2xl bg-zinc-50 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950 dark:ring-zinc-800/50">
-          <div className="relative aspect-video h-[50vh] w-full rounded-xl md:h-[70vh]">
-            <Image
-              src={src}
-              alt={alt}
-              fill
-              className="object-cover rounded-xl"
-              sizes="90w"
-            />
-          </div>
-        </MorphingDialogContent>
-        <MorphingDialogClose
-          className="fixed top-6 right-6 h-fit w-fit rounded-full bg-white p-1"
-          variants={{
-            initial: { opacity: 0 },
-            animate: {
-              opacity: 1,
-              transition: { delay: 0.3, duration: 0.1 },
-            },
-            exit: { opacity: 0, transition: { duration: 0 } },
+      <motion.h1 
+        className="text-4xl font-bold mb-6 text-center"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.5 }}
+      >
+        Cristian Salitre
+      </motion.h1>
+      <motion.p 
+        className="text-lg text-zinc-600 dark:text-zinc-400 mb-6 text-center max-w-xl"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4, duration: 0.5 }}
+      >
+        I'm a Firmware Engineer and graduate student at NC State University, passionate about building innovative solutions and sharing my journey.
+      </motion.p>
+      
+      <motion.div 
+        className="flex flex-wrap gap-2 mb-8 justify-center"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5, duration: 0.5 }}
+      >
+        {['Embedded Systems', 'Machine Learning', 'Computer Vision'].map((tech, index) => (
+          <motion.span
+            key={tech}
+            className="px-3 py-1 bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 rounded-full text-sm font-medium"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.6 + index * 0.1, duration: 0.3 }}
+            whileHover={{ scale: 1.05 }}
+          >
+            {tech}
+          </motion.span>
+        ))}
+      </motion.div>
+      
+      <motion.div 
+        className="flex gap-4"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.8, duration: 0.5 }}
+      >
+        <motion.a 
+          href="https://github.com/csalitred" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="px-6 py-2 rounded bg-zinc-900 text-white font-semibold hover:bg-zinc-700 transition-colors"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          GitHub
+        </motion.a>
+        <motion.a 
+          href="https://www.linkedin.com/in/cristian-salitre" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="px-6 py-2 rounded bg-blue-700 text-white font-semibold hover:bg-blue-800 transition-colors"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          LinkedIn
+        </motion.a>
+        <motion.button 
+          onClick={() => {
+            const link = document.createElement('a');
+            link.href = '/csalitre_resume_2025.pdf';
+            link.download = 'Cristian_Salitre_Resume.pdf';
+            link.target = '_blank';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
           }}
+          className="px-6 py-2 rounded bg-green-700 text-white font-semibold hover:bg-green-800 transition-colors"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
-          <XIcon className="h-5 w-5 text-zinc-500" />
-        </MorphingDialogClose>
-      </MorphingDialogContainer>
-    </MorphingDialog>
-  )
-}
-
-function MagneticSocialLink({
-  children,
-  link,
-}: {
-  children: React.ReactNode
-  link: string
-}) {
-  return (
-    <Magnetic springOptions={{ bounce: 0 }} intensity={0.3}>
-      <a
-        href={link}
-        className="group relative inline-flex shrink-0 items-center gap-[1px] rounded-full bg-zinc-100 px-2.5 py-1 text-sm text-black transition-colors duration-200 hover:bg-zinc-950 hover:text-zinc-50 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700"
-      >
-        {children}
-        <svg
-          width="15"
-          height="15"
-          viewBox="0 0 15 15"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-3 w-3"
-        >
-          <path
-            d="M3.64645 11.3536C3.45118 11.1583 3.45118 10.8417 3.64645 10.6465L10.2929 4L6 4C5.72386 4 5.5 3.77614 5.5 3.5C5.5 3.22386 5.72386 3 6 3L11.5 3C11.6326 3 11.7598 3.05268 11.8536 3.14645C11.9473 3.24022 12 3.36739 12 3.5L12 9.00001C12 9.27615 11.7761 9.50001 11.5 9.50001C11.2239 9.50001 11 9.27615 11 9.00001V4.70711L4.35355 11.3536C4.15829 11.5488 3.84171 11.5488 3.64645 11.3536Z"
-            fill="currentColor"
-            fillRule="evenodd"
-            clipRule="evenodd"
-          ></path>
-        </svg>
-      </a>
-    </Magnetic>
-  )
-}
-
-export default function Personal() {
-  return (
-    <motion.main
-      className="space-y-24"
-      variants={VARIANTS_CONTAINER}
-      initial="hidden"
-      animate="visible"
-    >
-      <motion.section
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
-      >
-        <div className="flex-1">
-          <p className="text-zinc-600 dark:text-zinc-400">
-            Hi, I am Software Engineer with a focus on
-            Machine Learning, Computer Vision, and Embedded Systems. A graduate student at the NC State University focusing on wirless communication and signal processing.
-            I am excited to bring new technologies to life and create innovative solutions that make a difference. 
-          </p>
-          <a
-            href="/csalitre_resume_2025.pdf"
-            download
-            className="mt-4 inline-block rounded bg-zinc-900 px-4 py-2 text-white font-semibold shadow-md hover:bg-zinc-700 transition-colors"
-          >
-            Download Resume
-          </a>
-        </div>
-      </motion.section>
-
-      <motion.section
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
-      >
-        <h3 className="mb-5 text-lg font-medium">Selected Projects</h3>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {PROJECTS.map((project) => (
-            <div key={project.name} className="space-y-2">
-              <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
-                <ProjectImage src={project.image} alt={project.name} />
-              </div>
-              <div className="px-1">
-                <a
-                  className="font-base group relative inline-block font-[450] text-zinc-900 dark:text-zinc-50"
-                  href={project.link}
-                  target="_blank"
-                >
-                  {project.name}
-                  <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 dark:bg-zinc-50 transition-all duration-200 group-hover:max-w-full"></span>
-                </a>
-                <p className="text-base text-zinc-600 dark:text-zinc-400">
-                  {project.description}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </motion.section>
-
-      <motion.section
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
-      >
-        <h3 className="mb-5 text-lg font-medium">Work Experience</h3>
-        <div className="flex flex-col space-y-2">
-          {WORK_EXPERIENCE.map((job) => (
-            <a
-              className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
-              href={job.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              key={job.id}
-            >
-              <Spotlight
-                className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
-                size={64}
-              />
-              <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
-                <div className="relative flex w-full flex-row justify-between">
-                  <div>
-                    <h4 className="font-normal dark:text-zinc-100">
-                      {job.title}
-                    </h4>
-                    <p className="text-zinc-500 dark:text-zinc-400">
-                      {job.company}
-                    </p>
-                  </div>
-                  <p className="text-zinc-600 dark:text-zinc-400">
-                    {job.start} - {job.end}
-                  </p>
-                </div>
-              </div>
-            </a>
-          ))}
-        </div>
-      </motion.section>
-
-      <motion.section
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
-      >
-
-        <h3 className="mb-5 text-lg font-medium">Education</h3>
-        <div className="flex flex-col space-y-2">
-          {EDUCATION.map((job) => (
-            <a
-              className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
-              href={job.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              key={job.id}
-            >
-              <Spotlight
-                className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
-                size={64}
-              />
-              <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
-                <div className="relative flex w-full flex-row justify-between">
-                  <div>
-                    <h4 className="font-normal dark:text-zinc-100">
-                      {job.institution}
-                    </h4>
-                    <p className="text-zinc-500 dark:text-zinc-400">
-                      {job.degree}
-                    </p>
-                  </div>
-                  <p className="text-zinc-600 dark:text-zinc-400">
-                    {job.end}
-                  </p>
-                </div>
-              </div>
-            </a>
-          ))}
-        </div>
-      </motion.section>
-
-      <motion.section
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
-      >
-        <h3 className="mb-3 text-lg font-medium">Blog</h3>
-        <div className="flex flex-col space-y-0">
-          <AnimatedBackground
-            enableHover
-            className="h-full w-full rounded-lg bg-zinc-100 dark:bg-zinc-900/80"
-            transition={{
-              type: 'spring',
-              bounce: 0,
-              duration: 0.2,
-            }}
-          >
-            {BLOG_POSTS.map((post) => (
-              <Link
-                key={post.uid}
-                className="-mx-3 rounded-xl px-3 py-3"
-                href={post.link}
-                data-id={post.uid}
-              >
-                <div className="flex flex-col space-y-1">
-                  <h4 className="font-normal dark:text-zinc-100">
-                    {post.title}
-                  </h4>
-                  <p className="text-zinc-500 dark:text-zinc-400">
-                    {post.description}
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </AnimatedBackground>
-        </div>
-      </motion.section>
-
-      <motion.section
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
-      >
-        <h3 className="mb-5 text-lg font-medium">Connect</h3>
-        <p className="mb-5 text-zinc-600 dark:text-zinc-400">
-          Feel free to contact me at{' '}
-          <a className="underline dark:text-zinc-300" href={`mailto:${EMAIL}`}>
-            {EMAIL}
-          </a>
-        </p>
-        <div className="flex items-center justify-start space-x-3">
-          {SOCIAL_LINKS.map((link) => (
-            <MagneticSocialLink key={link.label} link={link.link}>
-              {link.label}
-            </MagneticSocialLink>
-          ))}
-        </div>
-      </motion.section>
+          Resume
+        </motion.button>
+      </motion.div>
     </motion.main>
   )
 }
