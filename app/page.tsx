@@ -73,22 +73,16 @@ export default function Home() {
         >
           LinkedIn
         </motion.a>
-        <motion.button 
-          onClick={() => {
-            const link = document.createElement('a');
-            link.href = '/csalitre_resume_2025.pdf';
-            link.download = 'Cristian_Salitre_Resume.pdf';
-            link.target = '_blank';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-          }}
+        <motion.a 
+          href="/csalitre_resume_2025.pdf"
+          download="Cristian_Salitre_Resume.pdf"
+          rel="noopener noreferrer"
           className="px-6 py-2 rounded bg-green-700 text-white font-semibold hover:bg-green-800 transition-colors"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
           Resume
-        </motion.button>
+        </motion.a>
       </motion.div>
     </motion.main>
   )
