@@ -16,11 +16,6 @@ const THEMES_OPTIONS = [
     id: 'dark',
     icon: <MoonIcon className="h-4 w-4" />,
   },
-  {
-    label: 'System',
-    id: 'system',
-    icon: <MonitorIcon className="h-4 w-4" />,
-  },
 ]
 
 function ThemeSwitch() {
@@ -68,17 +63,12 @@ function ThemeSwitch() {
 
 export function Footer() {
   return (
-    <footer className="mt-24 border-t border-zinc-100 px-0 py-4 dark:border-zinc-800">
-      <div className="flex items-center justify-between">
-        <a href="https://github.com/csalitred" target="_blank">
-          <TextLoop className="text-xs text-zinc-500">
-            <span>© 2025 Cristian Salitre.</span>
-            <span>The future is what we make it.</span>
-          </TextLoop>
-        </a>
-        <div className="text-xs text-zinc-400">
-          <ThemeSwitch />
-        </div>
+    <footer className="w-full border-t border-zinc-200 dark:border-zinc-800 bg-white/80 dark:bg-zinc-950/80 py-6 text-center fixed bottom-0 left-0 z-40">
+      <div className="mx-auto max-w-6xl px-4 flex items-center justify-between">
+        <p className="text-zinc-500 dark:text-zinc-400 text-sm">
+          &copy; {new Date().getFullYear()} Cristian Salitre
+        </p>
+        <ThemeSwitch />
       </div>
     </footer>
   )
