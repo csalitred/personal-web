@@ -31,7 +31,7 @@ type SocialLink = {
 type Education = {
   institution: string   
   degree: string
-  end: string
+  specialty: string
   link: string
   id: string
 }
@@ -65,14 +65,14 @@ export const EDUCATION: Education[] = [
   {
     institution: 'University of North Carolina at Charlotte',   
     degree: 'Bachelor of Science in Computer Engineering',
-    end: 'December 2024',
+    specialty: 'Machine Learning',
     link: 'https://engr.charlotte.edu/',
     id: 'education1',
   },
   {
     institution: 'North Carolina State University',
     degree: 'Master of Science in Electrical Engineering',
-    end: 'Expected: May 2027',
+    specialty: 'Signal Processing and Computational Intelligence',
     link: 'https://engr.ncsu.edu/',
     id: 'education2',
   }
