@@ -74,6 +74,19 @@ export default function Home() {
           >
             LinkedIn
           </motion.a>
+          <motion.button
+            onClick={() => {
+              const link = document.createElement('a')
+              link.href = '/csalitre_resume.pdf'
+              link.download = 'csalitre_resume.pdf'
+              link.click()
+            }}
+            className="px-6 py-2 rounded bg-green-600 text-white font-semibold hover:bg-green-700 transition-colors"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Resume
+          </motion.button>
         </motion.div>
       </div>
     </motion.main>
