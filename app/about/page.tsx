@@ -2,37 +2,38 @@
 import { motion } from 'motion/react'
 import { EDUCATION } from '../data'
 
-const PROFILE_IMAGE = '/profile.jpg' // Place your image in public/ or use a placeholder
+const PROFILE_IMAGE = '/profile.png'
 
 export default function AboutPage() {
   return (
-    <motion.main 
-      className="max-w-5xl mx-auto py-12 flex flex-col md:flex-row gap-8 items-start"
+    <motion.main
+      className="relative flex flex-col md:flex-row items-center md:items-start justify-center min-h-screen py-16 px-4 gap-12 overflow-x-hidden"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
+      {/* Subtle background gradient blob */}
+      <div className="absolute inset-0 -z-10 flex items-center justify-center">
+        <div className="w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-blue-400/20 via-green-300/20 to-purple-400/20 blur-3xl opacity-60" />
+      </div>
       {/* Profile Image Left */}
-      <div className="flex-shrink-0 w-full md:w-[380px] flex justify-center md:justify-start">
-        <div className="w-full max-w-[340px] aspect-[3/4] rounded-2xl bg-zinc-200 dark:bg-zinc-700 overflow-hidden shadow-xl">
-          {/* Use your real photo if available */}
+      <div className="flex-shrink-0 w-full md:w-[340px] flex justify-center md:justify-start mb-8 md:mb-0">
+        <div className="w-48 h-64 md:w-72 md:h-96 rounded-3xl bg-zinc-200 dark:bg-zinc-700 overflow-hidden shadow-2xl border-4 border-white dark:border-zinc-900">
           <img src={PROFILE_IMAGE} alt="Profile" className="w-full h-full object-cover" />
         </div>
       </div>
-      {/* Info Cards Right */}
-      <div className="flex-1 flex flex-col gap-8 w-full">
-        {/* About Me Card */}
-        <div className="rounded-2xl shadow-xl bg-zinc-100 dark:bg-zinc-800/80 p-6 border border-zinc-200 dark:border-zinc-800">
-          <h2 className="text-2xl font-bold mb-2">About Me</h2>
-          <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            Hi, my name is Cristian Salitre, I am currently working as a Software Engineer Intern at Honeywell. Working on projects that involve computer vision, AI, and firmware development.
+      {/* Info Section Right */}
+      <div className="flex-1 flex flex-col gap-12 w-full max-w-2xl">
+        <div>
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-zinc-900 dark:text-zinc-100">About Me</h1>
+          <p className="text-lg md:text-xl text-zinc-700 dark:text-zinc-300 leading-relaxed">
+            Hi, I'm Cristian Salitre, a Software Engineer at Honeywell, specializing in computer vision, AI, and firmware development. I have experience with embedded systems, real-time image processing, and integrating AI models on edge devices such as Jetson platforms. Passionate about applying emerging technologies to practical challenges, I continuously explore new tools and methods to deliver innovative solutions.
           </p>
         </div>
-        {/* Education Card */}
-        <div className="rounded-2xl shadow-xl bg-zinc-100 dark:bg-zinc-800/80 p-6 border border-zinc-200 dark:border-zinc-800">
-          <h2 className="text-2xl font-bold mb-4">Education</h2>
-          <div className="overflow-x-auto">
-            <table className="min-w-full text-left text-sm">
+        <div>
+          <h2 className="text-3xl font-bold mb-6 text-zinc-900 dark:text-zinc-100">Education</h2>
+          <div className="overflow-x-auto rounded-xl shadow-lg bg-white/70 dark:bg-zinc-900/70 backdrop-blur-md p-4">
+            <table className="min-w-full text-left text-base">
               <thead>
                 <tr>
                   <th className="py-2 pr-4 font-semibold">School</th>
@@ -44,7 +45,6 @@ export default function AboutPage() {
                 {EDUCATION.map((edu) => (
                   <tr key={edu.id} className="align-top">
                     <td className="py-2 pr-4 flex items-center gap-2">
-                      {/* School logo if available */}
                       {edu.institution.includes('Charlotte') && (
                         <img src="/UNC-Charlotte-Official.png" alt="UNC Charlotte" className="w-8 h-8 rounded" />
                       )}

@@ -3,16 +3,18 @@ import { motion } from 'motion/react'
 
 export default function ResearchPage() {
   return (
-    <motion.main 
-      className="max-w-2xl mx-auto py-12"
+    <motion.main
+      className="relative flex flex-col items-center min-h-screen py-10 px-4 overflow-x-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="rounded-2xl shadow-xl bg-zinc-100 dark:bg-zinc-800/80 backdrop-blur-md p-8 border border-zinc-200 dark:border-zinc-800">
-        <h1 className="text-3xl font-bold mb-4">Research</h1>
-        <p className="text-zinc-600 dark:text-zinc-400">Research content coming soon.</p>
+      {/* Subtle background gradient blob */}
+      <div className="absolute inset-0 -z-10 flex items-center justify-center">
+        <div className="w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-blue-400/20 via-green-300/20 to-purple-400/20 blur-3xl opacity-60" />
       </div>
+      <h1 className="text-5xl md:text-6xl font-extrabold mb-8 text-center text-zinc-900 dark:text-zinc-100">Research</h1>
+      <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 text-center max-w-2xl">Research content coming soon.</p>
     </motion.main>
   )
 } 

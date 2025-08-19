@@ -5,51 +5,39 @@ import { motion } from 'motion/react'
 
 export default function ProjectsPage() {
   return (
-    <motion.main 
-      className="max-w-4xl mx-auto py-12"
+    <motion.main
+      className="flex flex-col items-center min-h-screen py-10 px-4 bg-white dark:bg-zinc-950"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="rounded-2xl shadow-xl bg-zinc-100 dark:bg-zinc-800/80 backdrop-blur-md p-8 border border-zinc-200 dark:border-zinc-800">
-        <motion.h1 
-          className="text-3xl font-bold mb-6"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-        >
-          Projects
-        </motion.h1>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {PROJECTS.map((project, index) => (
-            <motion.div 
-              key={project.id} 
-              className="space-y-2 rounded-2xl shadow bg-zinc-100 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-800 p-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 + index * 0.1, duration: 0.5 }}
-              whileHover={{ y: -5 }}
+      <h1 className="text-4xl md:text-5xl font-extrabold mb-10 text-center text-zinc-900 dark:text-zinc-100">Projects</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 w-full max-w-5xl">
+        {PROJECTS.map((project, index) => (
+          <motion.div
+            key={project.id}
+            className="flex flex-col items-start group"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 + index * 0.08, duration: 0.5 }}
+            whileHover={{ y: -4 }}
+          >
+            <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-3">
+              <Image src={project.image} alt={project.name} fill style={{ objectFit: 'cover' }} className="rounded-xl group-hover:scale-105 transition-transform duration-300" />
+            </div>
+            <a
+              className="text-lg md:text-xl font-bold text-zinc-900 dark:text-zinc-50 mb-1 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <div className="relative rounded-xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-900/40 dark:ring-zinc-800/50">
-                <Image src={project.image} alt={project.name} width={400} height={225} className="object-cover rounded-xl" />
-              </div>
-              <div className="px-1">
-                <a
-                  className="font-base group relative inline-block font-[450] text-zinc-900 dark:text-zinc-50"
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {project.name}
-                  <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 dark:bg-zinc-50 transition-all duration-200 group-hover:max-w-full"></span>
-                </a>
-                <p className="text-base text-zinc-600 dark:text-zinc-400">
-                  {project.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+              {project.name}
+            </a>
+            <p className="text-base text-zinc-600 dark:text-zinc-400">
+              {project.description}
+            </p>
+          </motion.div>
+        ))}
       </div>
     </motion.main>
   )
