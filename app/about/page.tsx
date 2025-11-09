@@ -8,7 +8,7 @@ const PROFILE_IMAGE = '/profile.png'
 export default function AboutPage() {
   return (
     <motion.main
-      className="relative flex flex-col md:flex-row items-center md:items-start justify-center min-h-screen pt-20 pb-16 px-4 gap-12 overflow-x-hidden"
+      className="relative flex flex-col md:flex-row items-center md:items-start justify-center min-h-screen pt-20 pb-32 px-4 gap-12 overflow-x-hidden"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -28,8 +28,11 @@ export default function AboutPage() {
         <div>
           <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-zinc-900 dark:text-zinc-100">About Me</h1>
           <p className="text-lg md:text-xl text-zinc-700 dark:text-zinc-300 leading-relaxed">
-            Hi, I'm Cristian Salitre, a Software Engineer at Honeywell, specializing in computer vision, AI, and firmware development. I have experience with embedded systems, real-time image processing, and integrating AI models on edge devices such as Jetson platforms. Passionate about applying emerging technologies to practical challenges, I continuously explore new tools and methods to deliver innovative solutions.
+            Hi, I'm Cristian Salitre, an Advanced Application Engineer at Honeywell. I hold a B.S. in Computer Engineering and am currently pursuing an M.S.E.E. I previously interned at Oxit, an IoT startup working with LPWAN such as LoRaWAN, which deepened my experience in embedded systems. I focus on applying machine learning to embedded and real‑time systems and enjoy tackling B2B integration and deployment challenges. I'm always learning and exploring new technologies, and I love collaborating on interesting projects — feel free to reach out.
           </p>
+        </div>
+        <div>
+          <ExperienceList />
         </div>
         <div>
           <h2 className="text-3xl font-bold mb-6 text-zinc-900 dark:text-zinc-100">Education</h2>
@@ -61,9 +64,6 @@ export default function AboutPage() {
               </tbody>
             </table>
           </div>
-        </div>
-        <div>
-          <ExperienceList />
         </div>
       </div>
     </motion.main>

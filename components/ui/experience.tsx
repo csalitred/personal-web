@@ -45,13 +45,13 @@ export default function ExperienceList() {
           </thead>
           <tbody>
             {experiences.map((exp) => (
-              <tr key={exp.id} className="align-top">
-                  <td className="py-2 pr-4 flex items-center">
-                    <img src={exp.logo} alt={`${exp.name} logo`} className="w-8 h-8 object-contain" />
-                  </td>
-                <td className="py-2 pr-4 text-zinc-700 dark:text-zinc-300">{exp.role}</td>
-                <td className="py-2 pr-4 text-zinc-500 dark:text-zinc-400">{exp.period}</td>
-                <td className="py-2 pr-4 text-zinc-500 dark:text-zinc-400">{exp.description}</td>
+              <tr key={exp.id} className="align-top hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors cursor-pointer">
+                <td className="py-3 pr-4 flex items-center">
+                  <img src={exp.logo} alt={`${exp.name} logo`} className="w-12 h-12 object-contain" />
+                </td>
+                <td className="py-3 pr-4 text-zinc-700 dark:text-zinc-300">{exp.role}</td>
+                <td className="py-3 pr-4 text-zinc-500 dark:text-zinc-400">{exp.period}</td>
+                <td className="py-3 pr-4 text-zinc-500 dark:text-zinc-400">{exp.description}</td>
               </tr>
             ))}
           </tbody>

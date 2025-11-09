@@ -23,12 +23,21 @@
 html {
   background: #ffffff;
   color: #000000;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 html.dark {
   background: #0f0f0f;
   color: #ffffff;
+}
+
+/* When toggling theme, temporarily add `.disable-theme-transitions` to the html element
+   to force instant style changes (prevents many elements with `transition-*` from animating). */
+.disable-theme-transitions,
+.disable-theme-transitions *,
+.disable-theme-transitions *::before,
+.disable-theme-transitions *::after {
+  transition: none !important;
+  animation: none !important;
 }
 
 body {
