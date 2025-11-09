@@ -100,10 +100,10 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
 
 export const BLOG_POSTS: BlogPost[] = [
   {
-    title: 'Coming Soon...',
-    description: '',
+    title: 'My Journey to Engineering',
+    description: 'coming soon',
     link: '',
-    uid: 'blog-1',
+    uid: 'my-journey-to-engineering',
   },
 ]
 

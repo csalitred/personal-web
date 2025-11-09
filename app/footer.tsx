@@ -1,6 +1,4 @@
 'use client'
-import { AnimatedBackground } from '@/components/ui/animated-background'
-import { TextLoop } from '@/components/ui/text-loop'
 import { MonitorIcon, MoonIcon, SunIcon, Github, Linkedin } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
@@ -26,38 +24,47 @@ function ThemeSwitch() {
     setMounted(true)
   }, [])
 
-  if (!mounted) {
-    return null
+  if (!mounted) return null
+
+  const toggleTheme = () => {
+    const doc = document.documentElement
+    // disable transitions so theme swap is instant
+    doc.classList.add('disable-theme-transitions')
+    setTheme(theme === 'dark' ? 'light' : 'dark')
+    // Wait for two animation frames so the browser paints the new theme
+    // (this prevents some elements from updating earlier than others).
+    // Also include a small fallback to ensure the helper class is removed.
+    const fallback = window.setTimeout(() => {
+      if (doc.classList.contains('disable-theme-transitions')) {
+        doc.classList.remove('disable-theme-transitions')
+      }
+    }, 250)
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        if (doc.classList.contains('disable-theme-transitions')) {
+          doc.classList.remove('disable-theme-transitions')
+        }
+        clearTimeout(fallback)
+      })
+    })
   }
 
   return (
-    <AnimatedBackground
-      className="pointer-events-none rounded-lg bg-zinc-100 dark:bg-zinc-800"
-      defaultValue={theme}
-      transition={{
-        type: 'spring',
-        bounce: 0,
-        duration: 0.2,
-      }}
-      enableHover={false}
-      onValueChange={(id) => {
-        setTheme(id as string)
-      }}
+    <button
+      onClick={toggleTheme}
+      aria-label="Toggle color theme"
+      className="inline-flex h-7 w-7 items-center justify-center text-zinc-500 transition-colors duration-100 focus-visible:outline-2 dark:text-zinc-400"
     >
-      {THEMES_OPTIONS.map((theme) => {
-        return (
-          <button
-            key={theme.id}
-            className="inline-flex h-7 w-7 items-center justify-center text-zinc-500 transition-colors duration-100 focus-visible:outline-2 data-[checked=true]:text-zinc-950 dark:text-zinc-400 dark:data-[checked=true]:text-zinc-50"
-            type="button"
-            aria-label={`Switch to ${theme.label} theme`}
-            data-id={theme.id}
-          >
-            {theme.icon}
-          </button>
-        )
-      })}
-    </AnimatedBackground>
+      {theme === 'dark' ? (
+        // half-moon SVG
+        <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+        </svg>
+      ) : (
+        <SunIcon className="h-4 w-4" />
+      )}
+    </button>
   )
 }
 

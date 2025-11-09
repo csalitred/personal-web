@@ -17,7 +17,6 @@ export function Header() {
         <nav className="hidden md:flex items-center space-x-6 text-base font-medium">
           <Link href="/about" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About</Link>
           <Link href="/projects" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Projects</Link>
-          <Link href="/research" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Research</Link>
           <Link href="/blog" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Blog</Link>
         </nav>
 
@@ -52,13 +51,6 @@ export function Header() {
               onClick={() => setIsMenuOpen(false)}
             >
               Projects
-            </Link>
-            <Link 
-              href="/research" 
-              className="block py-2 text-base font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Research
             </Link>
             <Link 
               href="/blog" 

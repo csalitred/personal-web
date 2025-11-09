@@ -52,7 +52,7 @@ export default function Home() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4, duration: 0.5 }}
       >
-        Software Engineer @ Honeywell, with a passion for Embedded Systems, Machine Learning, and Computer Vision. 
+        Advanced Application Engineer @ Honeywell
       </motion.p>
       <motion.div
         className="flex flex-col sm:flex-row gap-4 justify-center"
