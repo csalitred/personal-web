@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { motion } from 'motion/react'
+import SocialIcons from '../components/ui/social-icons'
 
 export default function Home() {
   return (
@@ -22,14 +23,8 @@ export default function Home() {
       >
         Cristian Salitre
       </motion.h1>
-      <motion.p
-        className="text-xl md:text-2xl text-zinc-700 dark:text-zinc-300 mb-8 text-center max-w-2xl font-medium"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4, duration: 0.5 }}
-      >
-        I'm a Software Engineer and graduate student at NC State University, passionate about building innovative solutions and sharing my journey.
-      </motion.p>
+      {/* Social icons under the name (GitHub, LinkedIn) */}
+      <SocialIcons />
       <div className="w-24 h-1 rounded-full bg-gradient-to-r from-blue-400 via-green-400 to-blue-400 opacity-40 mb-8" />
       <motion.div
         className="flex flex-wrap gap-3 mb-12 justify-center"
@@ -50,32 +45,21 @@ export default function Home() {
           </motion.span>
         ))}
       </motion.div>
+
+      <motion.p
+        className="text-xl md:text-2xl text-zinc-700 dark:text-zinc-300 mb-8 text-center max-w-2xl font-medium"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4, duration: 0.5 }}
+      >
+        Software Engineer @ Honeywell, with a passion for Embedded Systems, Machine Learning, and Computer Vision. 
+      </motion.p>
       <motion.div
         className="flex flex-col sm:flex-row gap-4 justify-center"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.8, duration: 0.5 }}
       >
-        <motion.a
-          href="https://github.com/csalitred"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-8 py-3 rounded-lg bg-zinc-900 text-white font-bold hover:bg-zinc-700 transition-colors text-lg shadow-md"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          GitHub
-        </motion.a>
-        <motion.a
-          href="https://www.linkedin.com/in/cristian-salitre"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-8 py-3 rounded-lg bg-blue-700 text-white font-bold hover:bg-blue-800 transition-colors text-lg shadow-md"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          LinkedIn
-        </motion.a>
         <motion.button
           onClick={() => {
             const link = document.createElement('a')

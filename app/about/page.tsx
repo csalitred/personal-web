@@ -1,13 +1,14 @@
 'use client'
 import { motion } from 'motion/react'
 import { EDUCATION } from '../data'
+import ExperienceList from '../../components/ui/experience'
 
 const PROFILE_IMAGE = '/profile.png'
 
 export default function AboutPage() {
   return (
     <motion.main
-      className="relative flex flex-col md:flex-row items-center md:items-start justify-center min-h-screen py-16 px-4 gap-12 overflow-x-hidden"
+      className="relative flex flex-col md:flex-row items-center md:items-start justify-center min-h-screen pt-20 pb-16 px-4 gap-12 overflow-x-hidden"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -60,6 +61,9 @@ export default function AboutPage() {
               </tbody>
             </table>
           </div>
+        </div>
+        <div>
+          <ExperienceList />
         </div>
       </div>
     </motion.main>

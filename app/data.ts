@@ -52,13 +52,6 @@ export const PROJECTS: Project[] = [
     image: '/UNC-Charlotte-logo.jpg',
     id: 'project2',
   },
-  {
-    name: 'Expertiza',
-    description: 'Open source reimplementation of a controller for Expertiza web application that allows students to find and connect with experts in their field.',
-    link: 'https://github.com/csalitred/expertiza',
-    image: '/NCSU-logo.png',
-    id: 'project3',
-  },
 ]
 
 export const EDUCATION: Education[] = [
@@ -83,7 +76,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     company: 'Honeywell',
     title: 'Software Engineer Intern',
     start: 'June 2025',
-    end: 'Present',
+    end: 'August 2025',
     link: 'https://www.honeywell.com/us/en',
     id: 'work1',
   },
@@ -95,6 +88,14 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     link: 'https://oxit.com',
     id: 'work2',
   },
+  {
+    company: 'Honeywell',
+    title: 'Software Engineer / Advanced Application Engineer',
+    start: 'September 2025',
+    end: 'Present',
+    link: 'https://www.honeywell.com/us/en',
+    id: 'work3',
+  }
 ]
 
 export const BLOG_POSTS: BlogPost[] = [
