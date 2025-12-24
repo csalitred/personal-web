@@ -8,7 +8,7 @@ export function Header() {
 
   return (
     <header className="fixed top-0 left-0 z-50 w-full bg-white/80 dark:bg-zinc-950/80 backdrop-blur border-b border-zinc-200 dark:border-zinc-800">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-8">
+      <div className="flex items-center justify-between px-4 md:px-8 py-3 w-full">
         <Link href="/" className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
           Home
         </Link>
@@ -17,7 +17,6 @@ export function Header() {
         <nav className="hidden md:flex items-center space-x-6 text-base font-medium">
           <Link href="/about" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About</Link>
           <Link href="/projects" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Projects</Link>
-          <Link href="/blog" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Blog</Link>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -51,13 +50,6 @@ export function Header() {
               onClick={() => setIsMenuOpen(false)}
             >
               Projects
-            </Link>
-            <Link 
-              href="/blog" 
-              className="block py-2 text-base font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Blog
             </Link>
           </div>
         </nav>

@@ -36,24 +36,6 @@ type Education = {
   id: string
 }
 
-export const PROJECTS: Project[] = [
-  {
-    name: 'Brain Tumor Detection with Machine Learning',
-    description:
-      'Built encoder-decoder Convolutional Neural Network (CNN) models to detect brain tumors in MRI images.',
-    link: 'https://github.com/csalitred/semantic-segmentation',
-    image: '/UNC-Charlotte-logo.jpg',
-    id: 'project1',
-  },
-  {
-    name: 'Asset Tracking & Anti-theft System',
-    description: 'Internal wireless asset tracking and anti-theft system using BLE technology, data logging and wirelesss control implentation with android application.',
-    link: '',
-    image: '/UNC-Charlotte-logo.jpg',
-    id: 'project2',
-  },
-]
-
 export const EDUCATION: Education[] = [
   {
     institution: 'University of North Carolina at Charlotte',   
